@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NoticeMate AI - 공지 요약 도우미</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="hero">
+    <p class="badge">SCNU OSS·AI Hackathon MVP</p>
+    <h1>NoticeMate AI</h1>
+    <p>복잡한 공지·과제 안내문을 붙여넣으면 핵심 요약, 마감일, 해야 할 일을 정리해주는 AI 웹서비스입니다.</p>
+  </header>
+
+  <main class="layout">
+    <section class="card input-card">
+      <h2>공지/안내문 입력</h2>
+      <textarea id="noticeText" placeholder="예) 9.27 오후 10시까지 GitHub 저장소, 실행 URL, 발표자료를 제출하세요..."></textarea>
+      <div class="actions">
+        <button id="sampleBtn" type="button">예시 넣기</button>
+        <button id="analyzeBtn" type="button">AI로 분석하기</button>
+      </div>
+      <p class="hint">API 키가 없어도 기본 규칙 분석으로 데모가 가능합니다. OPENAI_API_KEY를 설정하면 AI 분석 모드로 동작합니다.</p>
+    </section>
+
+    <section class="card result-card">
+      <div class="result-head">
+        <h2>분석 결과</h2>
+        <span id="modeTag">대기 중</span>
+      </div>
+      <div id="result" class="empty">왼쪽에 공지를 입력하고 분석 버튼을 눌러주세요.</div>
+    </section>
+  </main>
+
+  <section class="card history-card">
+    <div class="result-head">
+      <h2>최근 분석 기록</h2>
+      <button id="clearBtn" type="button" class="ghost">기록 삭제</button>
+    </div>
+    <ul id="history"></ul>
+  </section>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
